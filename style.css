@@ -139,7 +139,7 @@ header.shadow {
 .home {
   width: 100%;
   height: 35vh;
-  background: url("/Coffee Cafe/img/latte2.jpeg");
+  background: url("Images/latte2.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -311,7 +311,7 @@ header.shadow {
 .about {
   width: 100%;
   height: 20vh;
-  background: url("/Coffee Cafe/img/coffeebean.jpeg");
+  background: url("Images/coffeebean.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -390,7 +390,7 @@ header.shadow {
   align-items: center;
   width: 100%;
   height: 20vh;
-  background: url("/Coffee Cafe/img/scatteredbean.jpeg");
+  background: url("Images/scatteredbean.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
