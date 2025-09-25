@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 4rem;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+}
+
+/*Variables*/
+:root{
+  --main-color: #bc9667;
+  --second-color: #e1daca;
+  --text-color: #3d312e;
+  --bg-color: #f6f5ec;
+  --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
+}
+
+
+section{
+  padding: 40px 100px;
+}
+
+img {
+  width: 100%;
+}
+
+body{
+  background: var(--second-color);
+}
+
+header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 50px;
+  transition: 0.5s linear;
+  color: var(--bg-color);
+}
+
+header.shadow {
+  background: var(--text-color);
+  box-shadow: var(--box-shadow);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-color);
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+
+.navbar {
+  display: flex;
+}
+
+.navbar a{
+  padding: 8px 17px;
+  color: var(--bg-color);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  background: var(--main-color);
+  border-radius: 0.3rem;
+  transition: 0.2s all linear;
+}
+
+.header-icon {
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  column-gap: 1rem;
+}
+
+.header-icon {
+  color: var(--bg-color);
+}
+
+.header-icon:hover {
+  color: var(--main-color);
+}
+
+#menu-icon {
+  color: var(--bg-color);
+  font-size: 24px;
+  z-index: 100001;
+  cursor: pointer;
+  display: none;
+}
+
+.search-box {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%);
+  background: var(--bg-color);
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.search-box.active{
+  position: absolute;
+  top: 100%;
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: var(--box-shadow);
+  transition: 0.2s all linear;
+}
+.search-box input {
+  padding: 20px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--main-color);
+}
+
+.search-box input::placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.home {
+  width: 100%;
+  height: 35vh;
+  background: url("/Coffee Cafe/img/latte2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+  gap: 1.5rem;
+  display: grid;
+}
+
+.home-text {
+  font-size: 2.3rem;
+  color: var(--bg-color);
+  text-transform: uppercase;
+  max-width: 500px;
+  letter-spacing: 1px;
+  margin-left: -2rem;
+  text-shadow: 2px 2px 0 var(--text-color); 
+  line-height: 5rem;
+}
+
+.home-text p {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 0.5rem 0 0.5rem;
+  text-shadow:  -2px -2px 0 var(--bg-color);
+}
+
+.btn {
+  padding: 20px 40px;
+  border-radius: 2.5rem;
+  background: var(--main-color);
+  color: var(--bg-color);
+  font-size: 500;
+  text-shadow: none;
+  
+  
+}
+
+.btn:hover {
+  background: #8a6f4d;
+}
+
+.cafe-icons {
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menus-icons {
+  width: 70px;
+}
+
+.menus-icons p {
+  text-align: center;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.products {
+  padding: 1rem 5% 3rem;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.heading   {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;  /* change to left if you want */
+}
+
+/* Stack sections vertically */
+.products-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+/* Horizontal slider rows */
+.products-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  scrollbar-width: thin;              /* Firefox scrollbar */
+  scrollbar-color: var(--main-color) transparent;
+}
+
+
+/* Product card */
+.products-row .box {
+  flex: 0 0 300px;   /* each card width */
+  background: #fff;
+  border-radius: 0.8rem;
+  box-shadow: var(--box-shadow);
+  padding: 15px;
+  text-align: center;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+.products-row .box:hover {
+  transform: translateY(-5px);
+  background: var(--second-color);
+}
+
+/* Product image */
+.products-row img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+/* Product title (h3) */
+.products-row .box h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+  text-transform: capitalize;
+  color: var(--text-color);
+}
+
+/* Price + Add to cart row */
+.products-row .box .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.products-container .box .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.products-container .box .content span {
+  padding: 0.4rem 1.2rem;
+  color: var(--bg-color);
+  background: var(--text-color);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.products-container .box .content a {
+  padding: 0.4rem 1.2rem;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.products-container .box .content a:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+  transition: 0.2s all linear;
+}
+
+.about {
+  width: 100%;
+  height: 20vh;
+  background: url("/Coffee Cafe/img/coffeebean.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+  gap: 1.5rem;
+  display: grid;
+}
+
+.about h2{
+  font-size: 3.5rem;
+  max-width: 500px;
+  line-height: 2.9rem;
+  letter-spacing: 0.1;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+
+.about .btn {
+  background: var(--text-color);
+  font-size: 1.8rem;
+  border-radius: 40px;
+}
+.about .btn:hover {
+  background: var(--main-color);
+}
+
+
+.customers {
+  padding: 2rem 5% 3rem;
+}
+
+.customers-container {
+  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  gap: 1.5rem;
+  display: grid;
+  margin-top: 2rem;
+}
+
+.customers-container .box {
+  padding: 20px;
+  text-align: center;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.star .fa-solid {
+  color: var(--main-color);
+}
+
+.customers-container .box p{
+  font-size: 1rem;
+}
+
+.customers-container .box h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.customers-container .box img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.customers-container .box:hover{
+  background: var(--bg-color);
+  transition: 0.2s all linear;
+}
+
+.subscription {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+  background: url("/Coffee Cafe/img/scatteredbean.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+  text-align: center;
+}
+
+
+.subscribe {
+  line-height: 35px;
+}
+.subscription h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.subscription p{
+  font-size: 1rem;
+}
+
+.subscription input {
+  padding: 1rem 10rem;
+  border: 1px solid var(--bg-color);
+  border-radius: 40px;
+}
+
+.subscription button {
+  padding: 16px 25px;
+  background: var(--text-color);
+  border-radius: 40px;
+  color: var(--bg-color);
+}
+
+
+.subscription input::placeholder {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.footer {
+  grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+  gap: 1.5rem;
+  display: grid;
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.footer-box h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+
+.social {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.social a .fab {
+  font-size: 24px;
+  color: var(--text-color);
+  padding: 10px;
+  background: var(--second-color);
+  border-radius: 0.2rem;
+}
+
+.social a .fab:hover{
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+.footer-box h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footer-box li a{
+  color: var(--bg-color);
+}
+
+.footer-box li a:hover{
+  color: var(--main-color);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.contact span{
+  display: flex;
+  align-items: center;
+}
+
+.contact i {
+  font-size: 20px;
+  margin-right: 1rem;
+}
+
+.copyright {
+  padding: 20px;
+  text-align: center;
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+
+@media (max-width: 1058px) {
+  header {
+    padding: 16px 60px;
+  }
+  section {
+    padding: 50px 60px;
+  }
+  
+  .home-text {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 16px 4%;
+  }
+  section {
+    padding: 50px 4%;
+  }
+  
+  .home-text {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 12px 4%;
+  }
+  
+
+  
+  #menu-icon {
+    display: initial;
+  }
+  
+  .navbar {
+    position: absolute;
+    top: -570px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--second-color);
+    row-gap: 1.4rem;
+    padding: 20px;
+    transition: 0.3s;
+    text-align: center;
+  }
+  .navbar a {
+    color: var(--text-color);
+  }
+  .navbar a:hover {
+    color: var(--bg-color);
+  }
+  
+  .navbar.active {
+    top: 100%;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+ .home-text {
+    margin-left: 0.8rem;
+    line-height: 2rem;
+    max-width: 200px;
+    margin-top: -2rem;
+  }
+  
+  .home-text p{
+    margin: 0.5rem 0 0;
+  }
+  
+  .btn {
+  padding: 5px 10px;
+  font-size: 1.1rem;
+  }
+  
+.cafe-icons {
+  padding: 0.8rem 1rem;
+}
+
+.menus-icons {
+  width: 30px;
+}
+
+.menus-icons p {
+  padding: 0.1rem;
+  font-size: 0.6rem;
+}
+
+.coffee h2,
+.dessert h2,
+.customers h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0;
+}
+
+/* Stack sections vertically */
+.products-container {
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+
+/* Product card */
+.products-row .box {
+  flex: 0 0 180px;   /* each card width */
+  background: #fff;
+  padding: 0.5rem 0.5rem 0.8rem;
+}
+
+/* Product image */
+.products-row img {
+  height: 180px;
+}
+
+/* Product title (h3) */
+.products-row .box h3 {
+  font-size: 1.3rem;
+  padding: 2px;
+}
+
+
+.products-container .box .content {
+  gap: 0.5rem;
+}
+
+.products-container .box .content span {
+  padding: 0.2rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+.products-container .box .content a {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+.about h2{
+  font-size: 1.4rem;
+  max-width: 200px;
+  line-height: 1.2rem;
+  padding-bottom: 10px;
+  margin-top: -20px;
+}
+
+.about .btn {
+  background: var(--text-color);
+  font-size: 1rem;
+  border-radius: 30px;
+}
+
+.subscription {
+  height: 30vh;
+}
+
+.subscribe {
+  line-height: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.subscription h2 {
+  font-size: 1.2rem;
+}
+
+.subscription p{
+  font-size: 0.7rem;
+  max-width: 300px;
+}
+
+.subscription input {
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--bg-color);
+  border-radius: 40px;
+}
+
+.subscription button {
+  padding: 6px 14px;
+  background: var(--text-color);
+  border-radius: 40px;
+  color: var(--bg-color);
+}
+
+
+.subscription input::placeholder {
+  font-size: 0.7rem;
+}
+
+.social a .fab {
+  font-size: 18px;
+  color: var(--text-color);
+  padding: 5px;
+  background: var(--second-color);
+  border-radius: 0.2rem;
+}
+
+.footer {
+  gap: 5rem;
+}
+}
+
+@media (max-width: 360px) {
+  header {
+    padding: 9px 4%;
+  }
+  .home-text {
+    padding-top: 15px;
+  }
+  .home-text h1 {
+    font-size: 1.8rem;
+  }
+  .home-text p {
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+  
+  .about-img {
+  order: 2;
+ }
+  .about-text{
+    text-align: center;
+  }
+  .about-text h2 {
+    font-size: 1.2rem;
+  }
+  .heading {
+    font-size: 1.2rem;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
