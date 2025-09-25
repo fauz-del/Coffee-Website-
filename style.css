@@ -345,7 +345,7 @@ header.shadow {
 }
 
 .customers-container {
-  grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
   gap: 1.5rem;
   display: grid;
   margin-top: 2rem;
