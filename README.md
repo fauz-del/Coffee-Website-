@@ -31,4 +31,4 @@ A responsive and visually appealing landing page for a coffee shop. This project
 ## 💻 How to Run Locally
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/coffee-shop-landing-page.git
+   git clone https://fauz-del.github.io/Coffee-Website-/.git
